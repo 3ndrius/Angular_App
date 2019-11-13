@@ -7,13 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  newTask: string = '';
+
   tasksList: Array<string> = [];
   tasksDone: Array<string> = [];
 
-  add(task: string) {
-   this.tasksList.push(this.newTask);
-   this.newTask = '';
+  add(task) {
+   this.tasksList.push(task);
 
   }
 

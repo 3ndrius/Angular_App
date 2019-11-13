@@ -3,10 +3,7 @@
     <h1>Tasks application angular</h1>
   </header>
 
-  <div class="form">
-    <input type="text" [(ngModel)]="newTask">
-   <button (click)="add()">Add task</button>
-  </div>
+ <app-add-task (addTask)="add($event)"></app-add-task>
 
 <div class="wrapper">
  <app-list-task [tasksChild]="tasksList" (eventTask)="remove($event)" (doneTask)="done($event)"></app-list-task>
