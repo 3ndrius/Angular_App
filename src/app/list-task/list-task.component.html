@@ -1,0 +1,15 @@
+<div class="task-to-complete">
+    <h2>Tasks to complete</h2>
+   <ng-container *ngIf="tasksChild.length > 0; else noTask">
+      <ul>
+          <li *ngFor="let task of tasksChild">
+            {{task}}
+            <button (click)="remove(task)">Remove</button>
+            <button (click)="done(task)">Mark done</button>
+          </li>
+        </ul>
+   </ng-container>
+    <ng-template #noTask>
+      <p>No tasks to complete!</p>
+    </ng-template>
+  </div>
