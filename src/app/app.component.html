@@ -4,12 +4,16 @@
   </header>
 
   <div class="form">
-    <input type="text" >
-   <button>Add task</button>
+    <input type="text" [(ngModel)]="newTask">
+   <button (click)="add()">Add task</button>
   </div>
 
   <div class="task-to-complete">
-
+    <ul>
+      <li *ngFor="let task of tasksList">
+        {{task}}
+      </li>
+    </ul>
   </div>
 
   <div class="tasks-done">
