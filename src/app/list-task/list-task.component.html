@@ -1,8 +1,8 @@
 <div class="task-to-complete">
     <h2>Tasks to complete</h2>
-   <ng-container *ngIf="tasksChild.length > 0; else noTask">
+   <ng-container *ngIf="tasksList.length > 0; else noTask">
       <ul>
-          <li *ngFor="let task of tasksChild">
+          <li *ngFor="let task of tasksList">
             {{task}}
             <button (click)="remove(task)">Remove</button>
             <button (click)="done(task)">Mark done</button>

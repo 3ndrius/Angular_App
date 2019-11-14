@@ -3,12 +3,12 @@
     <h1>Tasks application angular</h1>
   </header>
 
- <app-add-task (addTask)="add($event)"></app-add-task>
+ <app-add-task></app-add-task>
 
 <div class="wrapper">
- <app-list-task [tasksChild]="tasksList" (eventTask)="remove($event)" (doneTask)="done($event)"></app-list-task>
+ <app-list-task ></app-list-task>
 
-<app-task-done [tasksDone]="tasksDone"></app-task-done>
+<app-task-done ></app-task-done>
 
 </div>
 </div>
