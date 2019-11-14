@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TasksService } from '../tasks.service';
+import { Task } from './../model/task';
 
 @Component({
   selector: 'app-list-task',
@@ -7,23 +9,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ListTaskComponent implements OnInit {
 
-  @Input()
-  tasksChild;
+  // @Input()
+  // tasksChild;
+  tasksList: Array<Task> = [];
+  // @Output()
+  // eventTask = new EventEmitter<string>();
+  // @Output()
+  // doneTask = new EventEmitter<string>();
 
-  @Output()
-  eventTask = new EventEmitter<string>();
-  @Output()
-  doneTask = new EventEmitter<string>();
-
-  constructor() { }
+  constructor(private tasksService: TasksService) {
+    this.tasksService.getTasksListObs().subscribe((tasks:Array<Task>) => {
+      this.tasksList = tasks;
+    });
+  }
 
   ngOnInit() {
   }
-  remove(task: string) {
-    this.eventTask.emit(task);
+  remove(task: Task) {
+    // this.eventTask.emit(task);
+    this.tasksService.remove(task);
   }
-  done(task: string) {
-    this.doneTask.emit(task);
+  done(task: Task) {
+    // this.doneTask.emit(task);
+    this.tasksService.done(task);
   }
 
 }
