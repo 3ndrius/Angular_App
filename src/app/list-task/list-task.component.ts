@@ -31,6 +31,7 @@ export class ListTaskComponent implements OnInit {
   }
   done(task: Task) {
     // this.doneTask.emit(task);
+    task.end = new Date();
     this.tasksService.done(task);
   }
 
